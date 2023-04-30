@@ -4,4 +4,4 @@ build
 .env
 .env.development
 .env.production
-kbm-auth.tgz
+*.tgz
