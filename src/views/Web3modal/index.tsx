@@ -444,7 +444,7 @@ const Web3modalExample = (): ReactElement => {
       setResult(formattedResult || null)
     } catch (err) {
       setPendingRequest(false)
-      setResult(null)
+      setResult('error'+err)
       console.log('error', err)
     }
   }
@@ -545,7 +545,7 @@ const Web3modalExample = (): ReactElement => {
       <Modal show={showModal} toggleModal={toggleModal}>
         {pendingRequest ? (
           <SModalContainer>
-            <SModalTitle>{'Pending Call Request'}</SModalTitle>
+            <SModalTitle>{'Pending Request'}</SModalTitle>
             <SContainer>
               <Loading />
               <SModalParagraph>
@@ -555,12 +555,12 @@ const Web3modalExample = (): ReactElement => {
           </SModalContainer>
         ) : result ? (
           <SModalContainer>
-            <SModalTitle>{'Call Request Approved'}</SModalTitle>
+            <SModalTitle>{'Request Approved'}</SModalTitle>
             <ModalResult>{result}</ModalResult>
           </SModalContainer>
         ) : (
           <SModalContainer>
-            <SModalTitle>{'Call Request Rejected'}</SModalTitle>
+            <SModalTitle>{'Request Rejected. Please try again.'}</SModalTitle>
             <ModalResult>{result}</ModalResult>
           </SModalContainer>
         )}
